@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <title>JMJ Sorter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+    <script src="sorter.js"></script>
+    <style>
+        .pre {
+            display: block;
+            padding: 9.5px;
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.42857143;
+            color: #333;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 450px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+        /* Set black background color, white text and some padding */
+        
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body ng-controller="ctrl">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#">JMJ Sorter</a> </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Sorter</a></li>
+                    <li><a href="http://jmjsistemas.com.br/merged/">Merger</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-10 text-left">
+                <h1>config.json goes here</h1>
+                <textarea id="config1" ng-model="config" class="col-sm-12 pre" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+            </div>
+            <div class="col-sm-2 sienav">
+                <h1> The action goes here </h1>
+                <button class="btn btn-info btn-lg" type="button" ng-click="sort()">Sort</button>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="col-sm-10 text-left">
+                <h1>and here comes your sorted config</h1> <pre>
+                <input type="hidden" ng-value="sorted"id="configJson">
+    {{sorted | json}}
+    </pre> </div>
+            <!--
+           <div class="col-sm-2 sienav">
+    <h1>click here to copy</h1>
+    <button class="btn btn-success btn-lg" data-clipboard-target="#configJson"> <i class="fa fa-clipboard"></i> </button>
+</div>
+--></div>
+    </div>
+    <!--
+    
+    
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-8">
+                <h4>config.json</h4>
+                <textarea id="config1" ng-model="config" class="col-sm-12 pre" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+            </div>
+            <div class="col-sm-2" style="text-align:center">JMJ Sorter
+                <br/>
+                <div class="row">
+                    <br/>
+                    <div class="col-ls-12">
+                        <button class="btn btn-info btn-lg" type="button" ng-click="sort()">Sort</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+      
+        <div class="container-fluid">
+            <h4 style="text-align:center">Sorted</h4> <pre id="configJson">
+    {{sorted | json}}
+    </pre> </div>
+        </div> -->
+</body>
+
+</html>
